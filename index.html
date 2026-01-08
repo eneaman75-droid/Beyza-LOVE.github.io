@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>For My Love ❤️</title>
+  <title>For My Beyza ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       margin: 0;
       font-family: "Georgia", serif;
-      background: linear-gradient(to bottom, #fff5f5, #ffffff);
+      background: linear-gradient(to bottom, #fff0f5, #ffffff);
       text-align: center;
       overflow: hidden;
       height: 100vh;
@@ -32,8 +32,8 @@
       max-width: 90%;
       cursor: pointer;
       transition: transform 0.6s ease;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(255,182,193,0.3);
     }
 
     img:hover {
@@ -41,49 +41,49 @@
     }
 
     .letter-img {
-      max-width: 300px;
+      max-width: 320px;
     }
 
     .page {
       background: white;
-      padding: 40px;
+      padding: 50px;
       max-width: 700px;
-      border-radius: 15px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(255,105,180,0.2);
       position: relative;
-      overflow: hidden;
     }
 
     .address {
       text-align: left;
-      margin-bottom: 50px;
+      margin-bottom: 60px;
       font-size: 18px;
-      color: #555;
+      color: #666;
     }
 
     .message {
       color: #9bbcff; /* light blue */
-      font-size: 20px;
-      line-height: 1.8;
-      margin: 20px 0;
+      font-size: 21px;
+      line-height: 1.9;
+      margin: 30px 0;
     }
 
     .flowers {
-      font-size: 32px;
-      margin: 30px 0;
-      opacity: 0.8;
+      font-size: 35px;
+      margin: 40px 0;
+      opacity: 0.9;
     }
 
     .petal {
       position: absolute;
-      font-size: 30px;
+      font-size: 28px;
       pointer-events: none;
       animation: fall linear infinite;
+      z-index: 10;
     }
 
     @keyframes fall {
       to {
-        transform: translateY(100vh) rotate(720deg);
+        transform: translateY(120vh) rotate(1080deg);
       }
     }
   </style>
@@ -92,48 +92,48 @@
 
   <!-- Screen 1: Bouquet -->
   <div id="screen1" class="screen active">
-    <img src="https://images.pexels.com/photos/3608751/pexels-photo-3608751.jpeg" alt="Bouquet" onclick="goTo(2)" />
-    <p style="font-size:20px; color:#ff6b9d;">Tap the bouquet 💐</p>
+    <img src="https://images.unsplash.com/photo-1679621672296-3b79017ed00e?w=800" alt="Beautiful white and pink roses bouquet" onclick="goTo(2)" />
+    <p style="font-size:22px; color:#ff69b4; margin-top:20px;">Tap the bouquet 💐</p>
   </div>
 
   <!-- Screen 2: Letter Envelope -->
   <div id="screen2" class="screen">
-    <img class="letter-img" src="https://static.vecteezy.com/system/resources/previews/047/009/919/non_2x/love-letter-and-flowers-delivery-on-valentines-day-luxury-bouquet-of-roses-and-card-on-pink-background-for-romantic-holiday-design-photo.jpg" alt="Letter" onclick="goTo(3)" />
-    <p style="font-size:20px; color:#ff6b9d;">Tap the letter ✉️</p>
+    <img class="letter-img" src="https://static.vecteezy.com/system/resources/thumbnails/050/441/719/small/romantic-white-envelope-surrounded-by-pink-flowers-perfect-for-valentine-s-day-cards-wedding-invitations-or-love-letters-photo.jpg" alt="Romantic letter with roses" onclick="goTo(3)" />
+    <p style="font-size:22px; color:#ff69b4; margin-top:20px;">Tap the letter ✉️</p>
   </div>
 
-  <!-- Screen 3: Closed Letter Page -->
+  <!-- Screen 3: Closed Letter -->
   <div id="screen3" class="screen">
     <div class="page" onclick="goTo(4)">
       <div class="address">
-        <strong>To my beautiful:</strong> Beyza<br />
-        [Her Address]<br />
+        <strong>To my everything:</strong> Beyza<br />
+        [Her full address here]<br />
         [City, Country]
       </div>
-      <p style="font-size:18px; color:#ff6b9d;">(Tap to open ❤️)</p>
+      <p style="font-size:20px; color:#ff69b4;">(Tap to open my heart ❤️)</p>
     </div>
   </div>
 
-  <!-- Screen 4: Open Message -->
+  <!-- Screen 4: Your Message -->
   <div id="screen4" class="screen">
     <div class="page">
-      <div class="flowers">🌸🌹💕🌹🌸</div>
-      <div class="flowers">💕🌸🌹🌸💕</div>
+      <div class="flowers">🌸🌹💗🌹🌸</div>
+      <div class="flowers">💗🌸🌹🌸💗</div>
 
       <div class="message">
-        My dearest Beyza ❤️<br /><br />
+        My sweetest Beyza ❤️<br /><br />
 
-        Write your full love message here...<br />
-        Tell her everything you feel 💙<br /><br />
+        Put your full love message here...<br />
+        Tell her how much she means to you 💙<br /><br />
 
-        I love you more than words can say.<br />
-        You make every day magical.<br /><br />
+        You are my world, my dream, my forever.<br />
+        I love you endlessly.<br /><br />
 
-        Forever yours ❤️
+        Always yours,
       </div>
 
-      <div class="flowers">🌸🌹💕🌹🌸</div>
-      <div class="flowers">💕🌸🌹🌸💕</div>
+      <div class="flowers">🌸🌹💗🌹🌸</div>
+      <div class="flowers">💗🌸🌹🌸💗</div>
     </div>
   </div>
 
@@ -143,19 +143,18 @@
       document.getElementById('screen' + n).classList.add('active');
 
       if (n === 4) {
-        // Add falling petals when message opens
-        for (let i = 0; i < 20; i++) {
+        // Falling petals when opening the message
+        for (let i = 0; i < 25; i++) {
           setTimeout(() => {
             const petal = document.createElement('div');
             petal.classList.add('petal');
             petal.innerHTML = Math.random() > 0.5 ? '🌸' : '🌹';
             petal.style.left = Math.random() * 100 + 'vw';
-            petal.style.animationDuration = (Math.random() * 5 + 5) + 's';
-            petal.style.opacity = Math.random() * 0.7 + 0.3;
+            petal.style.animationDuration = (Math.random() * 6 + 6) + 's';
+            petal.style.opacity = Math.random() * 0.6 + 0.4;
             document.body.appendChild(petal);
-
-            setTimeout(() => petal.remove(), 10000);
-          }, i * 300);
+            setTimeout(() => petal.remove(), 12000);
+          }, i * 250);
         }
       }
     }
