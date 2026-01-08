@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>For Beyza ❤️</title>
+  <title>For You ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body, html {
@@ -10,7 +10,6 @@
       padding: 0;
       height: 100%;
       overflow: hidden;
-      font-family: "Georgia", serif;
     }
 
     .screen {
@@ -20,128 +19,45 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      cursor: pointer;
     }
 
     .active {
       display: block;
     }
-
-    /* First 4 pictures - full screen, clickable anywhere */
-    .clickable {
-      cursor: pointer;
-    }
-
-    /* Page 5 - message page */
-    .message-page {
-      display: none;
-      width: 100vw;
-      height: 100vh;
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    .message-box {
-      background: rgba(255, 255, 255, 0.9);
-      color: #9bbcff; /* light blue */
-      font-size: 21px;
-      line-height: 1.9;
-      max-width: 90%;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    }
-
-    .flowers {
-      font-size: 40px;
-      margin: 30px 0;
-    }
-
-    .petal {
-      position: absolute;
-      font-size: 30px;
-      pointer-events: none;
-      animation: fall linear infinite;
-      z-index: 10;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(120vh) rotate(1080deg);
-      }
-    }
   </style>
 </head>
 <body>
 
-  <!-- Page 1 - Your Picture 1 -->
-  <div id="screen1" class="screen active clickable" onclick="goTo(2)"
-       style="background-image: url('YOUR_IMAGE_1_LINK_HERE.jpg');"></div>
+  <!-- Image 1 -->
+  <div id="screen1" class="screen active"
+       style="background-image: url('https://static.vecteezy.com/system/resources/thumbnails/066/130/156/small/beautiful-bridal-bouquet-with-pink-and-white-roses-near-wedding-rings-on-a-reflective-surface-photo.jpeg');"
+       onclick="goTo(2)"></div>
 
-  <!-- Page 2 - Your Picture 2 -->
-  <div id="screen2" class="screen clickable" onclick="goTo(3)"
-       style="background-image: url('YOUR_IMAGE_2_LINK_HERE.jpg');"></div>
+  <!-- Image 2 -->
+  <div id="screen2" class="screen"
+       style="background-image: url('https://render.fineartamerica.com/images/rendered/default/print/8/6/break/images/artworkimages/medium/1/dreamy-romantic-pastel-pink-shabby-chic-rose-closeup-watercolor-roses-kathy-fornal.jpg');"
+       onclick="goTo(3)"></div>
 
-  <!-- Page 3 - Your Picture 3 -->
-  <div id="screen3" class="screen clickable" onclick="goTo(4)"
-       style="background-image: url('YOUR_IMAGE_3_LINK_HERE.jpg');"></div>
+  <!-- Image 3 -->
+  <div id="screen3" class="screen"
+       style="background-image: url('https://thumbs.dreamstime.com/b/romantic-valentine-day-roses-love-letter-vibrant-red-elegant-envelope-scattered-rose-petals-dark-wooden-table-302188037.jpg');"
+       onclick="goTo(4)"></div>
 
-  <!-- Page 4 - Your Picture 4 -->
-  <div id="screen4" class="screen clickable" onclick="goTo(5)"
-       style="background-image: url('YOUR_IMAGE_4_LINK_HERE.jpg');"></div>
+  <!-- Image 4 -->
+  <div id="screen4" class="screen"
+       style="background-image: url('https://i.etsystatic.com/13213645/r/il/aaa02d/3384936226/il_570xN.3384936226_tf2v.jpg');"
+       onclick="goTo(5)"></div>
 
-  <!-- Page 5 - Final Message (with your Picture 5 as background) -->
-  <div id="screen5" class="message-page"
-       style="background-image: url('YOUR_IMAGE_5_LINK_HERE.jpg');">
-    <div class="flowers">🌸🌹💗🌹🌸</div>
-    <div class="message-box">
-      My beautiful Beyza ❤️<br><br>
-      
-      Write your full love message here...<br>
-      Tell her everything you feel 💙<br><br>
-      
-      I love you more than anything.<br><br>
-      
-      Forever yours,
-    </div>
-    <div class="flowers">💗🌸🌹🌸💗</div>
-  </div>
+  <!-- Image 5 (last one) -->
+  <div id="screen5" class="screen"
+       style="background-image: url('https://thumbs.dreamstime.com/b/soft-pink-roses-delicate-hearts-gentle-background-romantic-occasions-beautiful-arranged-floating-against-pastel-350161808.jpg');"
+       onclick="goTo(1)"></div>  <!-- Optional: loops back to start, or remove onclick to stop -->
 
   <script>
     function goTo(n) {
-      document.querySelectorAll('.screen, .message-page').forEach(s => {
-        s.classList.remove('active');
-        s.style.display = 'none';
-      });
-      if (n <= 4) {
-        document.getElementById('screen' + n).classList.add('active');
-        document.getElementById('screen' + n).style.display = 'block';
-      } else {
-        document.getElementById('screen5').style.display = 'flex';
-      }
-
-      // Falling petals only on the final message page
-      if (n === 5) {
-        for (let i = 0; i < 30; i++) {
-          setTimeout(() => {
-            const petal = document.createElement('div');
-            petal.classList.add('petal');
-            petal.innerHTML = Math.random() > 0.5 ? '🌸' : '🌹';
-            petal.style.left = Math.random() * 100 + 'vw';
-            petal.style.animationDuration = (Math.random() * 8 + 8) + 's';
-            petal.style.opacity = Math.random() * 0.7 + 0.3;
-            document.body.appendChild(petal);
-            setTimeout(() => petal.remove(), 16000);
-          }, i * 300);
-        }
-      }
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById('screen' + n).classList.add('active');
     }
   </script>
 
