@@ -2,83 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>For My Beyza ❤️</title>
+  <title>For Beyza ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       margin: 0;
-      font-family: "Georgia", serif;
-      background: linear-gradient(to bottom, #fff0f5, #ffffff);
-      text-align: center;
-      overflow: hidden;
       height: 100vh;
+      overflow: hidden;
+      font-family: "Georgia", serif;
     }
 
     .screen {
       display: none;
-      min-height: 100vh;
-      padding: 20px;
-      box-sizing: border-box;
+      width: 100%;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      cursor: pointer;
     }
 
     .active {
       display: flex;
     }
 
-    img {
-      max-width: 90%;
-      cursor: pointer;
-      transition: transform 0.6s ease;
+    .hint {
+      color: white;
+      font-size: 22px;
+      background: rgba(0,0,0,0.4);
+      padding: 10px 20px;
       border-radius: 20px;
-      box-shadow: 0 15px 35px rgba(255,182,193,0.3);
+      text-shadow: 2px 2px 4px black;
     }
 
-    img:hover {
-      transform: scale(1.08);
-    }
-
-    .letter-img {
-      max-width: 320px;
-    }
-
-    .page {
-      background: white;
-      padding: 50px;
-      max-width: 700px;
-      border-radius: 20px;
-      box-shadow: 0 20px 50px rgba(255,105,180,0.2);
-      position: relative;
-    }
-
-    .address {
-      text-align: left;
-      margin-bottom: 60px;
-      font-size: 18px;
-      color: #666;
+    .message-page {
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
     }
 
     .message {
+      background: rgba(255,255,255,0.85);
       color: #9bbcff; /* light blue */
       font-size: 21px;
       line-height: 1.9;
-      margin: 30px 0;
+      max-width: 90%;
+      margin: 20px auto;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
 
     .flowers {
-      font-size: 35px;
-      margin: 40px 0;
-      opacity: 0.9;
+      font-size: 40px;
+      margin: 20px 0;
     }
 
     .petal {
       position: absolute;
-      font-size: 28px;
+      font-size: 30px;
       pointer-events: none;
       animation: fall linear infinite;
-      z-index: 10;
+      z-index: 5;
     }
 
     @keyframes fall {
@@ -90,51 +79,40 @@
 </head>
 <body>
 
-  <!-- Screen 1: Bouquet -->
-  <div id="screen1" class="screen active">
-    <img src="https://images.unsplash.com/photo-1679621672296-3b79017ed00e?w=800" alt="Beautiful white and pink roses bouquet" onclick="goTo(2)" />
-    <p style="font-size:22px; color:#ff69b4; margin-top:20px;">Tap the bouquet 💐</p>
+  <!-- Page 1: Picture 1 (Bouquet) -->
+  <div id="screen1" class="screen active" onclick="goTo(2)" style="background-image: url('https://images.unsplash.com/photo-1679621672296-3b79017ed00e?fm=jpg&q=80');">
+    <div class="hint">Tap anywhere 💐</div>
   </div>
 
-  <!-- Screen 2: Letter Envelope -->
-  <div id="screen2" class="screen">
-    <img class="letter-img" src="https://static.vecteezy.com/system/resources/thumbnails/050/441/719/small/romantic-white-envelope-surrounded-by-pink-flowers-perfect-for-valentine-s-day-cards-wedding-invitations-or-love-letters-photo.jpg" alt="Romantic letter with roses" onclick="goTo(3)" />
-    <p style="font-size:22px; color:#ff69b4; margin-top:20px;">Tap the letter ✉️</p>
+  <!-- Page 2: Picture 2 -->
+  <div id="screen2" class="screen" onclick="goTo(3)" style="background-image: url('https://static.vecteezy.com/system/resources/thumbnails/066/130/156/original/beautiful-bridal-bouquet-with-pink-and-white-roses-near-wedding-rings-on-a-reflective-surface-photo.jpeg');">
+    <div class="hint">Tap to continue 🌸</div>
   </div>
 
-  <!-- Screen 3: Closed Letter -->
-  <div id="screen3" class="screen">
-    <div class="page" onclick="goTo(4)">
-      <div class="address">
-        <strong>To my everything:</strong> Beyza<br />
-        [Her full address here]<br />
-        [City, Country]
-      </div>
-      <p style="font-size:20px; color:#ff69b4;">(Tap to open my heart ❤️)</p>
+  <!-- Page 3: Picture 3 (Letter) -->
+  <div id="screen3" class="screen" onclick="goTo(4)" style="background-image: url('https://thumbs.dreamstime.com/b/romantic-love-letter-being-prepared-valentine-s-day-pink-roses-red-heart-white-envelope-ribbon-wax-seal-open-card-378758072.jpg');">
+    <div class="hint">Tap the letter ✉️</div>
+  </div>
+
+  <!-- Page 4: Picture 4 (Address page) -->
+  <div id="screen4" class="screen" onclick="goTo(5)" style="background-image: url('https://thumbs.dreamstime.com/b/beautiful-pink-rose-lying-white-envelope-romantic-sign-love-letter-selective-focus-valentine-s-day-concept-woman-s-day-169442242.jpg');">
+    <div class="hint">Tap to open ❤️</div>
+  </div>
+
+  <!-- Page 5: Your Message -->
+  <div id="screen5" class="screen message-page" style="background-image: url('https://thumbs.dreamstime.com/b/pink-heart-rose-petals-perfect-valentines-day-cards-romantic-messages-love-themed-designs-soft-elegant-backgrounds-348838794.jpg');">
+    <div class="flowers">🌸🌹💗🌹🌸</div>
+    <div class="message">
+      My beautiful Beyza ❤️<br /><br />
+      
+      Write your full love message here...<br />
+      Tell her everything in your heart 💙<br /><br />
+      
+      I love you forever and always.<br /><br />
+      
+      Yours eternally,
     </div>
-  </div>
-
-  <!-- Screen 4: Your Message -->
-  <div id="screen4" class="screen">
-    <div class="page">
-      <div class="flowers">🌸🌹💗🌹🌸</div>
-      <div class="flowers">💗🌸🌹🌸💗</div>
-
-      <div class="message">
-        My sweetest Beyza ❤️<br /><br />
-
-        Put your full love message here...<br />
-        Tell her how much she means to you 💙<br /><br />
-
-        You are my world, my dream, my forever.<br />
-        I love you endlessly.<br /><br />
-
-        Always yours,
-      </div>
-
-      <div class="flowers">🌸🌹💗🌹🌸</div>
-      <div class="flowers">💗🌸🌹🌸💗</div>
-    </div>
+    <div class="flowers">💗🌸🌹🌸💗</div>
   </div>
 
   <script>
@@ -142,19 +120,19 @@
       document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
       document.getElementById('screen' + n).classList.add('active');
 
-      if (n === 4) {
-        // Falling petals when opening the message
-        for (let i = 0; i < 25; i++) {
+      if (n === 5) {
+        // Falling petals on final page
+        for (let i = 0; i < 30; i++) {
           setTimeout(() => {
             const petal = document.createElement('div');
             petal.classList.add('petal');
             petal.innerHTML = Math.random() > 0.5 ? '🌸' : '🌹';
             petal.style.left = Math.random() * 100 + 'vw';
-            petal.style.animationDuration = (Math.random() * 6 + 6) + 's';
-            petal.style.opacity = Math.random() * 0.6 + 0.4;
+            petal.style.animationDuration = (Math.random() * 8 + 8) + 's';
+            petal.style.opacity = Math.random() * 0.7 + 0.3;
             document.body.appendChild(petal);
-            setTimeout(() => petal.remove(), 12000);
-          }, i * 250);
+            setTimeout(() => petal.remove(), 16000);
+          }, i * 300);
         }
       }
     }
