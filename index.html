@@ -5,61 +5,63 @@
   <title>For Beyza ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body {
+    body, html {
       margin: 0;
-      height: 100vh;
+      padding: 0;
+      height: 100%;
       overflow: hidden;
       font-family: "Georgia", serif;
     }
 
     .screen {
       display: none;
-      width: 100%;
+      width: 100vw;
       height: 100vh;
       background-size: cover;
       background-position: center;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      cursor: pointer;
+      background-repeat: no-repeat;
     }
 
     .active {
-      display: flex;
+      display: block;
     }
 
-    .hint {
-      color: white;
-      font-size: 22px;
-      background: rgba(0,0,0,0.4);
-      padding: 10px 20px;
-      border-radius: 20px;
-      text-shadow: 2px 2px 4px black;
+    /* First 4 pictures - full screen, clickable anywhere */
+    .clickable {
+      cursor: pointer;
     }
 
+    /* Page 5 - message page */
     .message-page {
+      display: none;
+      width: 100vw;
+      height: 100vh;
       background-size: cover;
       background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       color: white;
       text-align: center;
       padding: 20px;
+      box-sizing: border-box;
     }
 
-    .message {
-      background: rgba(255,255,255,0.85);
+    .message-box {
+      background: rgba(255, 255, 255, 0.9);
       color: #9bbcff; /* light blue */
       font-size: 21px;
       line-height: 1.9;
       max-width: 90%;
-      margin: 20px auto;
       padding: 40px;
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     }
 
     .flowers {
       font-size: 40px;
-      margin: 20px 0;
+      margin: 30px 0;
     }
 
     .petal {
@@ -67,7 +69,7 @@
       font-size: 30px;
       pointer-events: none;
       animation: fall linear infinite;
-      z-index: 5;
+      z-index: 10;
     }
 
     @keyframes fall {
@@ -79,49 +81,54 @@
 </head>
 <body>
 
-  <!-- Page 1: Picture 1 (Bouquet) -->
-  <div id="screen1" class="screen active" onclick="goTo(2)" style="background-image: url('https://images.unsplash.com/photo-1679621672296-3b79017ed00e?fm=jpg&q=80');">
-    <div class="hint">Tap anywhere 💐</div>
-  </div>
+  <!-- Page 1 - Your Picture 1 -->
+  <div id="screen1" class="screen active clickable" onclick="goTo(2)"
+       style="background-image: url('YOUR_IMAGE_1_LINK_HERE.jpg');"></div>
 
-  <!-- Page 2: Picture 2 -->
-  <div id="screen2" class="screen" onclick="goTo(3)" style="background-image: url('https://static.vecteezy.com/system/resources/thumbnails/066/130/156/original/beautiful-bridal-bouquet-with-pink-and-white-roses-near-wedding-rings-on-a-reflective-surface-photo.jpeg');">
-    <div class="hint">Tap to continue 🌸</div>
-  </div>
+  <!-- Page 2 - Your Picture 2 -->
+  <div id="screen2" class="screen clickable" onclick="goTo(3)"
+       style="background-image: url('YOUR_IMAGE_2_LINK_HERE.jpg');"></div>
 
-  <!-- Page 3: Picture 3 (Letter) -->
-  <div id="screen3" class="screen" onclick="goTo(4)" style="background-image: url('https://thumbs.dreamstime.com/b/romantic-love-letter-being-prepared-valentine-s-day-pink-roses-red-heart-white-envelope-ribbon-wax-seal-open-card-378758072.jpg');">
-    <div class="hint">Tap the letter ✉️</div>
-  </div>
+  <!-- Page 3 - Your Picture 3 -->
+  <div id="screen3" class="screen clickable" onclick="goTo(4)"
+       style="background-image: url('YOUR_IMAGE_3_LINK_HERE.jpg');"></div>
 
-  <!-- Page 4: Picture 4 (Address page) -->
-  <div id="screen4" class="screen" onclick="goTo(5)" style="background-image: url('https://thumbs.dreamstime.com/b/beautiful-pink-rose-lying-white-envelope-romantic-sign-love-letter-selective-focus-valentine-s-day-concept-woman-s-day-169442242.jpg');">
-    <div class="hint">Tap to open ❤️</div>
-  </div>
+  <!-- Page 4 - Your Picture 4 -->
+  <div id="screen4" class="screen clickable" onclick="goTo(5)"
+       style="background-image: url('YOUR_IMAGE_4_LINK_HERE.jpg');"></div>
 
-  <!-- Page 5: Your Message -->
-  <div id="screen5" class="screen message-page" style="background-image: url('https://thumbs.dreamstime.com/b/pink-heart-rose-petals-perfect-valentines-day-cards-romantic-messages-love-themed-designs-soft-elegant-backgrounds-348838794.jpg');">
+  <!-- Page 5 - Final Message (with your Picture 5 as background) -->
+  <div id="screen5" class="message-page"
+       style="background-image: url('YOUR_IMAGE_5_LINK_HERE.jpg');">
     <div class="flowers">🌸🌹💗🌹🌸</div>
-    <div class="message">
-      My beautiful Beyza ❤️<br /><br />
+    <div class="message-box">
+      My beautiful Beyza ❤️<br><br>
       
-      Write your full love message here...<br />
-      Tell her everything in your heart 💙<br /><br />
+      Write your full love message here...<br>
+      Tell her everything you feel 💙<br><br>
       
-      I love you forever and always.<br /><br />
+      I love you more than anything.<br><br>
       
-      Yours eternally,
+      Forever yours,
     </div>
     <div class="flowers">💗🌸🌹🌸💗</div>
   </div>
 
   <script>
     function goTo(n) {
-      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-      document.getElementById('screen' + n).classList.add('active');
+      document.querySelectorAll('.screen, .message-page').forEach(s => {
+        s.classList.remove('active');
+        s.style.display = 'none';
+      });
+      if (n <= 4) {
+        document.getElementById('screen' + n).classList.add('active');
+        document.getElementById('screen' + n).style.display = 'block';
+      } else {
+        document.getElementById('screen5').style.display = 'flex';
+      }
 
+      // Falling petals only on the final message page
       if (n === 5) {
-        // Falling petals on final page
         for (let i = 0; i < 30; i++) {
           setTimeout(() => {
             const petal = document.createElement('div');
