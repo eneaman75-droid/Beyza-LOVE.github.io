@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>For You ❤️</title>
+  <title>For My Love ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <style>
     body {
       margin: 0;
       font-family: "Georgia", serif;
-      background: #ffffff;
+      background: linear-gradient(to bottom, #fff5f5, #ffffff);
       text-align: center;
+      overflow: hidden;
+      height: 100vh;
     }
 
     .screen {
@@ -30,88 +31,133 @@
     img {
       max-width: 90%;
       cursor: pointer;
-      transition: transform 0.4s ease;
+      transition: transform 0.6s ease;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 
     img:hover {
-      transform: scale(1.05);
+      transform: scale(1.08);
     }
 
-    .letter {
-      width: 200px;
+    .letter-img {
+      max-width: 300px;
     }
 
     .page {
       background: white;
-      padding: 30px;
-      max-width: 600px;
-      border: 1px solid #eee;
+      padding: 40px;
+      max-width: 700px;
+      border-radius: 15px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      position: relative;
+      overflow: hidden;
     }
 
     .address {
       text-align: left;
-      margin-bottom: 40px;
-      font-size: 16px;
+      margin-bottom: 50px;
+      font-size: 18px;
+      color: #555;
     }
 
     .message {
       color: #9bbcff; /* light blue */
-      font-size: 18px;
-      line-height: 1.6;
+      font-size: 20px;
+      line-height: 1.8;
+      margin: 20px 0;
     }
 
     .flowers {
-      margin: 20px 0;
-      font-size: 24px;
+      font-size: 32px;
+      margin: 30px 0;
+      opacity: 0.8;
+    }
+
+    .petal {
+      position: absolute;
+      font-size: 30px;
+      pointer-events: none;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(720deg);
+      }
     }
   </style>
 </head>
-
 <body>
 
   <!-- Screen 1: Bouquet -->
   <div id="screen1" class="screen active">
-    <img src="https://i.imgur.com/0Z8FQYF.png" alt="Bouquet" onclick="goTo(2)">
-    <p>Tap the bouquet 💐</p>
+    <img src="https://images.pexels.com/photos/3608751/pexels-photo-3608751.jpeg" alt="Bouquet" onclick="goTo(2)" />
+    <p style="font-size:20px; color:#ff6b9d;">Tap the bouquet 💐</p>
   </div>
 
-  <!-- Screen 2: Letter -->
+  <!-- Screen 2: Letter Envelope -->
   <div id="screen2" class="screen">
-    <img class="letter" src="https://i.imgur.com/YZ6X9mS.png" alt="Letter" onclick="goTo(3)">
-    <p>Tap the letter ✉️</p>
+    <img class="letter-img" src="https://static.vecteezy.com/system/resources/previews/047/009/919/non_2x/love-letter-and-flowers-delivery-on-valentines-day-luxury-bouquet-of-roses-and-card-on-pink-background-for-romantic-holiday-design-photo.jpg" alt="Letter" onclick="goTo(3)" />
+    <p style="font-size:20px; color:#ff6b9d;">Tap the letter ✉️</p>
   </div>
 
-  <!-- Screen 3: Closed letter -->
+  <!-- Screen 3: Closed Letter Page -->
   <div id="screen3" class="screen">
     <div class="page" onclick="goTo(4)">
       <div class="address">
-        <strong>To:</strong> Her Name<br>
-        Her Address<br>
-        City, Country
+        <strong>To my beautiful:</strong> Beyza<br />
+        [Her Address]<br />
+        [City, Country]
       </div>
-      <p>(Tap to open)</p>
+      <p style="font-size:18px; color:#ff6b9d;">(Tap to open ❤️)</p>
     </div>
   </div>
 
-  <!-- Screen 4: Message -->
+  <!-- Screen 4: Open Message -->
   <div id="screen4" class="screen">
     <div class="page">
-      <div class="flowers">🌸🌹🌸🌹🌸</div>
+      <div class="flowers">🌸🌹💕🌹🌸</div>
+      <div class="flowers">💕🌸🌹🌸💕</div>
 
       <div class="message">
-        Your love letter goes here ❤️  
-        <br><br>
-        Write exactly what you want to tell her.
+        My dearest Beyza ❤️<br /><br />
+
+        Write your full love message here...<br />
+        Tell her everything you feel 💙<br /><br />
+
+        I love you more than words can say.<br />
+        You make every day magical.<br /><br />
+
+        Forever yours ❤️
       </div>
 
-      <div class="flowers">🌸🌹🌸🌹🌸</div>
+      <div class="flowers">🌸🌹💕🌹🌸</div>
+      <div class="flowers">💕🌸🌹🌸💕</div>
     </div>
   </div>
 
   <script>
     function goTo(n) {
-      document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
-      document.getElementById("screen" + n).classList.add("active");
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById('screen' + n).classList.add('active');
+
+      if (n === 4) {
+        // Add falling petals when message opens
+        for (let i = 0; i < 20; i++) {
+          setTimeout(() => {
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            petal.innerHTML = Math.random() > 0.5 ? '🌸' : '🌹';
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            petal.style.opacity = Math.random() * 0.7 + 0.3;
+            document.body.appendChild(petal);
+
+            setTimeout(() => petal.remove(), 10000);
+          }, i * 300);
+        }
+      }
     }
   </script>
 
