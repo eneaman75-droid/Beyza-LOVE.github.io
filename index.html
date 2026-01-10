@@ -26,7 +26,7 @@
       background-position: center;
       background-repeat: no-repeat;
       opacity: 0;
-      transition: opacity 1.4s ease-in-out;   /* smooth fade – change 1.4s to slower/faster */
+      transition: opacity 1.4s ease-in-out;   /* smooth fade */
       pointer-events: none;
     }
 
@@ -43,29 +43,29 @@
 
     <!-- Image 1 -->
     <div class="screen" id="screen1"
-         style="background-image: url('https://ibb.co/nqwC7fTv');">
+         style="background-image: url('https://i.ibb.co/nqwC7fTv/fb8177fb449d4f129ea0af1b62af5741.jpg');">
     </div>
 
-    <!-- Image 2 -->
+    <!-- Image 2 (Test Image from Imgur) -->
     <div class="screen" id="screen2"
-         style="background-image: url('https://ibb.co/LDKv3qqw');">
+         style="background-image: url('https://i.imgur.com/M5wvNjB.jpeg');">
     </div>
 
     <!-- Image 3 -->
     <div class="screen" id="screen3"
-         style="background-image: url('https://ibb.co/9H7LzLpf');">
+         style="background-image: url('https://i.ibb.co/9H7LzLpf/0d9e7c0fb9a14f59a6e29252ae6a3b16.jpg');">
     </div>
 
-    <!-- Image 4 (last one – loops back on click) -->
+    <!-- Image 4 -->
     <div class="screen" id="screen4"
-         style="background-image: url('https://ibb.co/Fb1kG8wB');">
+         style="background-image: url('https://i.ibb.co/Fb1kG8wB/392b74740904459799d464cf466c6814.jpg');">
     </div>
 
   </div>
 
   <script>
     let current = 1;
-    const total = 4;  // Change to 5 if you add another image later
+    const total = 4;  
 
     // Show first image
     document.getElementById('screen1').classList.add('active');
