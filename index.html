@@ -10,6 +10,7 @@
       padding: 0;
       height: 100%;
       overflow: hidden;
+      background: black; /* fallback during fade */
     }
 
     .container {
@@ -20,16 +21,13 @@
 
     .screen {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       opacity: 0;
-      transition: opacity 1.2s ease-in-out;   /* ← This creates the smooth fade! Change time here */
-      pointer-events: none;                   /* Only active slide gets clicks */
+      transition: opacity 1.4s ease-in-out;   /* smooth fade – change 1.4s to slower/faster */
+      pointer-events: none;
     }
 
     .active {
@@ -45,46 +43,46 @@
 
     <!-- Image 1 -->
     <div class="screen" id="screen1"
-         style="background-image: url('https://static.vecteezy.com/system/resources/thumbnails/066/130/156/small/beautiful-bridal-bouquet-with-pink-and-white-roses-near-wedding-rings-on-a-reflective-surface-photo.jpeg');">
+         style="background-image: url('https://i.ibb.co/nqwC7fTv/fb8177fb449d4f129ea0af1b62af5741.jpg');">
     </div>
 
     <!-- Image 2 -->
     <div class="screen" id="screen2"
-         style="background-image: url('https://render.fineartamerica.com/images/rendered/default/print/8/6/break/images/artworkimages/medium/1/dreamy-romantic-pastel-pink-shabby-chic-rose-closeup-watercolor-roses-kathy-fornal.jpg');">
+         style="background-image: url('https://i.ibb.co/LDKv3qqw/6a9858fb4b7440e89929154bed18ae62.jpg');">
     </div>
 
     <!-- Image 3 -->
     <div class="screen" id="screen3"
-         style="background-image: url('https://thumbs.dreamstime.com/b/romantic-valentine-day-roses-love-letter-vibrant-red-elegant-envelope-scattered-rose-petals-dark-wooden-table-302188037.jpg');">
+         style="background-image: url('https://i.ibb.co/9H7LzLpf/0d9e7c0fb9a14f59a6e29252ae6a3b16.jpg');">
     </div>
 
-    <!-- Image 4 -->
+    <!-- Image 4 (last one – loops back on click) -->
     <div class="screen" id="screen4"
-         style="background-image: url('https://i.etsystatic.com/13213645/r/il/aaa02d/3384936226/il_570xN.3384936226_tf2v.jpg');">
-    </div>
-
-    <!-- Image 5 (last one) -->
-    <div class="screen" id="screen5"
-         style="background-image: url('https://thumbs.dreamstime.com/b/soft-pink-roses-delicate-hearts-gentle-background-romantic-occasions-beautiful-arranged-floating-against-pastel-350161808.jpg');">
+         style="background-image: url('https://i.ibb.co/Fb1kG8wB/392b74740904459799d464cf466c6814.jpg');">
     </div>
 
   </div>
 
   <script>
     let current = 1;
-    const total = 5;
+    const total = 4;  // Change to 5 if you add another image later
 
-    document.addEventListener('click', function() {
+    // Show first image
+    document.getElementById('screen1').classList.add('active');
+
+    document.addEventListener('click', () => {
+      // Hide current
       document.getElementById('screen' + current).classList.remove('active');
-      
-      current++;
-      if (current > total) current = 1; // loop back (or remove this line to stop at last)
 
+      // Next image
+      current++;
+      if (current > total) {
+        current = 1; // loop back
+      }
+
+      // Show next
       document.getElementById('screen' + current).classList.add('active');
     });
-
-    // Start with first image visible
-    document.getElementById('screen1').classList.add('active');
   </script>
 
 </body>
