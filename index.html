@@ -10,7 +10,7 @@
       padding: 0;
       height: 100%;
       overflow: hidden;
-      background: black; /* fallback during fade */
+      background: #fff0f5; /* soft pink fallback during fade */
     }
 
     .container {
@@ -26,7 +26,7 @@
       background-position: center;
       background-repeat: no-repeat;
       opacity: 0;
-      transition: opacity 1.4s ease-in-out;   /* smooth fade – change 1.4s to slower/faster */
+      transition: opacity 1.5s ease-in-out;   /* dreamy fade speed */
       pointer-events: none;
     }
 
@@ -41,49 +41,15 @@
 
   <div class="container">
 
-    <!-- Image 1 -->
+    <!-- Image 1: Beautiful white & pink bouquet (tall, romantic) -->
     <div class="screen" id="screen1"
-         style="background-image: url('https://i.ibb.co/nqwC7fTv/fb8177fb449d4f129ea0af1b62af5741.jpg');">
+         style="background-image: url('https://images.pexels.com/photos/3608751/pexels-photo-3608751.jpeg');">
     </div>
 
-    <!-- Image 2 -->
+    <!-- Image 2: Soft pink roses close-up (dreamy & full-screen) -->
     <div class="screen" id="screen2"
-         style="background-image: url('https://i.ibb.co/LDKv3qqw/6a9858fb4b7440e89929154bed18ae62.jpg');">
+         style="background-image: url('https://images.pexels.com/photos/617967/pexels-photo-617967.jpeg');">
     </div>
 
-    <!-- Image 3 -->
-    <div class="screen" id="screen3"
-         style="background-image: url('https://i.ibb.co/9H7LzLpf/0d9e7c0fb9a14f59a6e29252ae6a3b16.jpg');">
-    </div>
-
-    <!-- Image 4 (last one – loops back on click) -->
-    <div class="screen" id="screen4"
-         style="background-image: url('https://i.ibb.co/Fb1kG8wB/392b74740904459799d464cf466c6814.jpg');">
-    </div>
-
-  </div>
-
-  <script>
-    let current = 1;
-    const total = 4;  // Change to 5 if you add another image later
-
-    // Show first image
-    document.getElementById('screen1').classList.add('active');
-
-    document.addEventListener('click', () => {
-      // Hide current
-      document.getElementById('screen' + current).classList.remove('active');
-
-      // Next image
-      current++;
-      if (current > total) {
-        current = 1; // loop back
-      }
-
-      // Show next
-      document.getElementById('screen' + current).classList.add('active');
-    });
-  </script>
-
-</body>
-</html>
+    <!-- Image 3: Elegant pink roses with bokeh (very aesthetic) -->
+    <div class="screen" id="
